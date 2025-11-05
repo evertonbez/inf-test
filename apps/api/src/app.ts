@@ -30,14 +30,11 @@ app.doc("/openapi", {
   openapi: "3.1.0",
   info: {
     version: "0.0.1",
-    title: "Cograde API",
-    description: "Cograde challenge API.",
+    title: "API",
+    description: "Challenge API.",
   },
 });
 
-app.get(
-  "/",
-  Scalar({ url: "/openapi", pageTitle: "Cograde API", theme: "saturn" }),
-);
+app.get("/", Scalar({ url: "/openapi", pageTitle: "API", theme: "saturn" }));
 
 export default app;
