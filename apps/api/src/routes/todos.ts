@@ -25,7 +25,7 @@ const app = new OpenAPIHono()
           content: {
             "application/json": {
               schema: z.object({
-                todoId: z.string(),
+                todoId: z.number(),
               }),
             },
           },
@@ -61,10 +61,10 @@ const app = new OpenAPIHono()
 
         const [todoCreated] = await db
           .insert(todosTable)
-          .values({ title, description })
+          .values({ title, description, createdAt: new Date().toISOString() })
           .returning();
 
-        return c.json({ todoId: todoCreated.id.toString() }, 200);
+        return c.json({ todoId: todoCreated.id }, 200);
       } catch (error) {
         console.error("Error creating todo:", error);
         return c.json(
@@ -98,6 +98,7 @@ const app = new OpenAPIHono()
                   title: z.string(),
                   description: z.string().nullable(),
                   completed: z.number().nullable(),
+                  createdAt: z.string(),
                 }),
               ),
             },
@@ -182,6 +183,7 @@ const app = new OpenAPIHono()
                 title: z.string(),
                 description: z.string().nullable(),
                 completed: z.number().nullable(),
+                createdAt: z.string(),
               }),
             },
           },
@@ -291,6 +293,7 @@ const app = new OpenAPIHono()
                 title: z.string(),
                 description: z.string().nullable(),
                 completed: z.number().nullable(),
+                createdAt: z.string(),
               }),
             },
           },

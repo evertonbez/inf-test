@@ -8,12 +8,14 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:drop": "drizzle-kit drop"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hono/node-server": "^1.19.6",
     "@hono/zod-openapi": "^1.1.4",
     "@libsql/client": "^0.15.15",
     "@scalar/hono-api-reference": "^0.9.23",
