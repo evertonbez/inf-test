@@ -3,6 +3,7 @@ import { Scalar } from "@scalar/hono-api-reference";
 import { cors } from "hono/cors";
 import { requestId } from "hono/request-id";
 import { secureHeaders } from "hono/secure-headers";
+import { todosRoute } from "./routes/todos.ts";
 
 const app = new OpenAPIHono({
   defaultHook: (result, c) => {
@@ -23,7 +24,7 @@ app.get("/health", async (c) => {
   return c.json({ status: "ok", timestamp: new Date().toISOString() }, 200);
 });
 
-// app.route("/api/jobs", jobsRoute);
+app.route("/todos", todosRoute);
 
 app.doc("/openapi", {
   openapi: "3.1.0",
