@@ -10,11 +10,15 @@
   },
   "devDependencies": {
     "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "turbo": "^2.6.0",
     "typescript": "5.9.2"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@biomejs/biome": "^2.3.4"
   }
 }
